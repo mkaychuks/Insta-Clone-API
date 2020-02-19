@@ -1,11 +1,12 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.request import Request
-from rest_framework import permissions
+
 
 from .serializers import UserProfileSerializer, UserProfileUploads
 from .models import UserProfile
 from .permissions import YourProfile
+
 
 from instaclone.models import Upload
 
@@ -30,6 +31,7 @@ class UserProfileList(generics.RetrieveUpdateAPIView):
         if kwargs.get('pk') == 'pk':
             return Response(self.get_serializer(request.user).data)
         return super().retrieve(request, args, kwargs)
+
 
 
 class UserProfileUploadsView(generics.ListAPIView):
