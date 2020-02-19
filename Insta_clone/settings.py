@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
 
+
+    # schema generation
     'drf_yasg',
 
     # Local installations
